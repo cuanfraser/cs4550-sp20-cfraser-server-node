@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/cuanfraser/cs4550-sp20-cfraser-server-node#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.9.9"
   }
 }
