@@ -1,8 +1,16 @@
 const express = require('express')
 const app = express()
-
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/whiteboard-cs4550-sp20',
+
+var connectionString = 'mongodb://localhost:27017/whiteboard-cs4550-sp20';
+if(process.env.MLAB_USERNAME_WEBDEV) {
+   var username = process.env.MLAB_USERNAME_WEBDEV;
+   var password = process.env.MLAB_PASSWORD_WEBDEV;
+   connectionString = 'mongodb://' + username + ':' + password;
+   connectionString += '@ds141704.mlab.com:41704/heroku_8hjljv0v';
+}
+
+mongoose.connect(connectionString,
     { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(function (req, res, next) {
